@@ -42,11 +42,13 @@ include ("code.php");
                     <input type="text" placeholder="Номер технического задания"><br>
                     <input type="text" placeholder="Номер статуса готовности проекта"><br>
                     <input type="text" placeholder="Название продукта"><br>
+                    <input type="submit" value="Добавить">
                 </div>
                 <div id="add_client">
                     <input type="text" placeholder="Фамилия клиента"><br>
                     <input type="text" placeholder="Имя клиента"><br>
                     <input type="text" placeholder="Отчество клиента"><br>
+                    <input type="submit" value="Добавить">
                 </div>
 
             </form>
@@ -61,13 +63,15 @@ include ("code.php");
 
 
             document.getElementById('add_button').onclick=function () {
-                alert (elt.options[elt.selectedIndex].text);
+                //alert (elt.options[elt.selectedIndex].text);
                 //alert(a);
                 if (elt.options[elt.selectedIndex].text=="Договор") {
                     document.getElementById('add_dogovor').style.visibility = 'visible';
+                    document.getElementById('add_client').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Клиент") {
                     document.getElementById('add_client').style.visibility = 'visible';
+                    document.getElementById('add_dogovor').style.visibility = 'hidden';
                 }
 
             }

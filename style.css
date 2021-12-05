@@ -72,9 +72,15 @@ select {
 }
 #add_dogovor {
     float: right;
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 500px;
 }
 #add_client {
     float: right;
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 500px;
 }
 input {
     margin-right:50px;
