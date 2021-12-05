@@ -6,9 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<?
-include ("code.php");
-?>
+<?php require_once('ConnectDB.php'); ?>
 <div id="page">
     <div id="header">
 
@@ -38,19 +36,23 @@ include ("code.php");
                     <option value="Специализация">Специализация</option>
                     <option value="Техническое_задание">Техническое задание</option>
                 </select>
-                <div id="add_dogovor">
-                    <input type="text" placeholder="Номер технического задания"><br>
-                    <input type="text" placeholder="Номер статуса готовности проекта"><br>
-                    <input type="text" placeholder="Название продукта"><br>
-                    <input type="submit" value="Добавить">
-                </div>
-                <div id="add_client">
-                    <input type="text" placeholder="Фамилия клиента"><br>
-                    <input type="text" placeholder="Имя клиента"><br>
-                    <input type="text" placeholder="Отчество клиента"><br>
-                    <input type="submit" value="Добавить">
-                </div>
 
+            </form>
+            <form method="post" id="add_form_dogovor" action="insert.php">
+            <div id="add_dogovor">
+                <input type="text" placeholder="Номер технического задания" name="number_tz"><br>
+                <input type="text" placeholder="Номер статуса готовности проекта" name="number_state_proj"><br>
+                <input type="text" placeholder="Название продукта" name="name_prod"><br>
+                <input type="submit" value="Добавить">
+            </div>
+            </form>
+            <form method="post" id="add_form_client" action="insert.php">
+            <div id="add_client">
+                <input type="text" placeholder="Фамилия клиента"><br>
+                <input type="text" placeholder="Имя клиента"><br>
+                <input type="text" placeholder="Отчество клиента"><br>
+                <input type="submit" value="Добавить">
+            </div>
             </form>
             <button id="add_button" type="submit">Отобразить поля добавления</button>
         </div>
