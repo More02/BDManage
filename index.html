@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Разработка программных продуктов</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="page">
+    <div id="header">
+
+        <ul>
+            <li><a href="index.html">Добавление</a></li>
+            <li><a href="delete.html">Удаление</a></li>
+            <li><a href="update.html">Обновление</a></li>
+            <li><a href="look.html">Просмотр</a></li>
+            <li><a href="filtr.html">Фильтрация</a></li>
+        </ul>
+
+        <h1>Разработка программных продуктов</h1>
+    </div>
+    <div id="middle">
+        <div id="add">
+            <p>Добавление данных в базу</p>
+            <p class="select_table">Выберите таблицу для добавления данных:</p>
+            <form method="post" id="add_form">
+                <select name="add_table" id="add_table">
+                    <option value="Договор">Договор</option>
+                    <option value="Клиент">Клиент</option>
+                    <option value="Вид_функционала">Вид функционала</option>
+                    <option value="Готовность_проекта">Готовность проекта</option>
+                    <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Отдел">Отдел</option>
+                    <option value="Работник">Работник</option>
+                    <option value="Специализация">Специализация</option>
+                    <option value="Техническое_задание">Техническое задание</option>
+                </select>
+                <div id="add_dogovor">
+                    <input type="text" placeholder="Номер технического задания"><br>
+                    <input type="text" placeholder="Номер статуса готовности проекта"><br>
+                    <input type="text" placeholder="Название продукта"><br>
+                </div>
+                <div id="add_client">
+                    <input type="text" placeholder="Фамилия клиента"><br>
+                    <input type="text" placeholder="Имя клиента"><br>
+                    <input type="text" placeholder="Отчество клиента"><br>
+                </div>
+
+            </form>
+            <button id="add_button" type="submit">Отобразить поля добавления</button>
+        </div>
+        <script type=”text/javascript”>
+
+            var a = '<?php
+                if(isset($_POST['add_button'])) {
+                    $table = $_POST['add_table'];
+                    echo "$table";
+                }
+            ?>'
+            document.getElementById('add_dogovor').style.visibility = 'hidden';
+            document.getElementById('add_client').style.visibility = 'hidden';
+            //let a=document.getElementById('add_table').value;
+            document.getElementById('add_button').onclick=function () {
+                alert(a);
+                if (a=="Договор") {
+                    document.getElementById('add_dogovor').style.visibility = 'visible';
+                }
+                if (a=="Клиент") {
+                    document.getElementById('add_client').style.visibility = 'visible';
+                }
+
+            }
+        </script>
+
+
+    </div>
+    <div id="footer">
+
+    </div>
+</div>
+
+</body>
+</html>
