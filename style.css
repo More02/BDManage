@@ -73,7 +73,10 @@ select {
 #add_dogovor {
     float: right;
 }
-#add_dogovor input {
+#add_client {
+    float: right;
+}
+input {
     margin-right:50px;
     margin-left:50px;
     width: 500px;

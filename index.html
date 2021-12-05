@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?
+include ("code.php");
+?>
 <div id="page">
     <div id="header">
 
@@ -49,23 +52,21 @@
             </form>
             <button id="add_button" type="submit">Отобразить поля добавления</button>
         </div>
-        <script type=”text/javascript”>
-
-            var a = '<?php
-                if(isset($_POST['add_button'])) {
-                    $table = $_POST['add_table'];
-                    echo "$table";
-                }
-            ?>'
+        <script>
             document.getElementById('add_dogovor').style.visibility = 'hidden';
             document.getElementById('add_client').style.visibility = 'hidden';
-            //let a=document.getElementById('add_table').value;
+            let a=document.getElementById('add_table').value;
+
+            var elt = document.getElementById('add_table');
+
+
             document.getElementById('add_button').onclick=function () {
-                alert(a);
-                if (a=="Договор") {
+                alert (elt.options[elt.selectedIndex].text);
+                //alert(a);
+                if (elt.options[elt.selectedIndex].text=="Договор") {
                     document.getElementById('add_dogovor').style.visibility = 'visible';
                 }
-                if (a=="Клиент") {
+                if (elt.options[elt.selectedIndex].text=="Клиент") {
                     document.getElementById('add_client').style.visibility = 'visible';
                 }
 
