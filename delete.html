@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php require_once('ConnectDB.php'); ?>
 <div id="page">
     <div id="header">
 
@@ -20,25 +21,77 @@
         <h1>Разработка программных продуктов</h1>
     </div>
     <div id="middle">
-
-        <div id="delete">
-            <p>Удаление данных из таблицы</p>
+        <div id="add">
+            <p>Удаление данных из базы</p>
             <p class="select_table">Выберите таблицу для удаления данных:</p>
-            <form method="post" id="delete_form">
-                <select name="delete_table">
-                    <option name="Договор">Договор</option>
-                    <option name="Клиент">Клиент</option>
-                    <option name="Вид_функционала">Вид функционала</option>
-                    <option name="Готовность_проекта">Готовность проекта</option>
-                    <option name="Набор_функционала">Набор функционала</option>
-                    <option name="Отдел">Отдел</option>
-                    <option name="Работник">Работник</option>
-                    <option name="Специализация">Специализация</option>
-                    <option name="Техническое_задание">Техническое задание</option>
+            <form method="post">
+                <select name="delete_table" id="delete_table">
+                    <option value="Договор">Договор</option>
+                    <option value="Клиент">Клиент</option>
+                    <option value="Вид_функционала">Вид функционала</option>
+                    <option value="Готовность_проекта">Готовность проекта</option>
+                    <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Отдел">Отдел</option>
+                    <option value="Работник">Работник</option>
+                    <option value="Специализация">Специализация</option>
+                    <option value="Техническое_задание">Техническое задание</option>
                 </select>
-            </form>
-        </div>
 
+            </form>
+            <form method="post"  action="delete.php">
+                <div id="delete_dogovor">
+                    <input type="text" placeholder="Номер договора" name="number_dog"><br>
+                    <input type="submit" value="Удалить">
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_client">
+                    <input type="text" placeholder="Номер клиента" name="number_client"><br>
+                    <input type="submit" value="Удалить">
+                </div>
+            </form>
+            <style>
+                #delete_dogovor {
+                    float: right;
+                    position: absolute;
+                    margin-top: -41px;
+                    margin-left: 500px;
+                }
+
+                #delete_client {
+                    float: right;
+                    position: absolute;
+                    margin-top: -41px;
+                    margin-left: 500px;
+                }
+            </style>
+            <button id="delete_button" type="submit">Отобразить поля удаления</button>
+        </div>
+        <script>
+            document.getElementById('delete_dogovor').style.visibility = 'hidden';
+            document.getElementById('delete_client').style.visibility = 'hidden';
+            let a=document.getElementById('delete_table').value;
+
+            var elt = document.getElementById('delete_table');
+
+
+            document.getElementById('delete_button').onclick=function () {
+                //alert (elt.options[elt.selectedIndex].text);
+                //alert(a);
+                if (elt.options[elt.selectedIndex].text=="Договор") {
+                    document.getElementById('delete_dogovor').style.visibility = 'visible';
+                    document.getElementById('delete_client').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="Клиент") {
+                    document.getElementById('delete_client').style.visibility = 'visible';
+                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
+                }
+
+            }
+        </script>
+
+
+    </div>
     <div id="footer">
 
     </div>
