@@ -23,7 +23,7 @@ $sql = "INSERT INTO `договор`(`Номер_технического_зад
 
 if (mysqli_query($conn, $sql)) {
     echo "Данные успешно добавлены";
-    include('C:\OpenServer\domains\localhost\BD_Proj\index.html');
+    include('C:\OpenServer\domains\localhost\BD_Proj\index_add.html');
 } else {
     echo "Ошибка при подключении к бд";
     include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');

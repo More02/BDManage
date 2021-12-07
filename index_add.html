@@ -22,10 +22,10 @@
     </div>
     <div id="middle">
         <div id="add">
-            <p>Удаление данных из базы</p>
-            <p class="select_table">Выберите таблицу для удаления данных:</p>
-            <form method="post">
-                <select name="delete_table" id="delete_table">
+            <p>Добавление данных в базу</p>
+            <p class="select_table">Выберите таблицу для добавления данных:</p>
+            <form method="post" id="add_form">
+                <select name="add_table" id="add_table">
                     <option value="Договор">Договор</option>
                     <option value="Клиент">Клиент</option>
                     <option value="Вид_функционала">Вид функционала</option>
@@ -38,53 +38,42 @@
                 </select>
 
             </form>
-            <form method="post"  action="delete.php">
-                <div id="delete_dogovor">
-                    <input type="text" placeholder="Номер договора" name="number_dog"><br>
-                    <input type="submit" value="Удалить">
-                </div>
+            <form method="post" id="add_form_dogovor" action="insert.php">
+            <div id="add_dogovor">
+                <input type="text" placeholder="Номер технического задания" name="number_tz"><br>
+                <input type="text" placeholder="Номер статуса готовности проекта" name="number_state_proj"><br>
+                <input type="text" placeholder="Название продукта" name="name_prod"><br>
+                <input type="submit" value="Добавить">
+            </div>
             </form>
-            <form method="post" action="delete.php">
-                <div id="delete_client">
-                    <input type="text" placeholder="Номер клиента" name="number_client"><br>
-                    <input type="submit" value="Удалить">
-                </div>
+            <form method="post" id="add_form_client" action="insert.php">
+            <div id="add_client">
+                <input type="text" placeholder="Фамилия клиента" name="surname"><br>
+                <input type="text" placeholder="Имя клиента" name="name"><br>
+                <input type="text" placeholder="Отчество клиента" name="last_name"><br>
+                <input type="submit" value="Добавить">
+            </div>
             </form>
-            <style>
-                #delete_dogovor {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-
-                #delete_client {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-            </style>
-            <button id="delete_button" type="submit">Отобразить поля удаления</button>
+            <button id="add_button" type="submit">Отобразить поля добавления</button>
         </div>
         <script>
-            document.getElementById('delete_dogovor').style.visibility = 'hidden';
-            document.getElementById('delete_client').style.visibility = 'hidden';
-            let a=document.getElementById('delete_table').value;
+            document.getElementById('add_dogovor').style.visibility = 'hidden';
+            document.getElementById('add_client').style.visibility = 'hidden';
+            let a=document.getElementById('add_table').value;
 
-            var elt = document.getElementById('delete_table');
+            var elt = document.getElementById('add_table');
 
 
-            document.getElementById('delete_button').onclick=function () {
+            document.getElementById('add_button').onclick=function () {
                 //alert (elt.options[elt.selectedIndex].text);
                 //alert(a);
                 if (elt.options[elt.selectedIndex].text=="Договор") {
-                    document.getElementById('delete_dogovor').style.visibility = 'visible';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
+                    document.getElementById('add_dogovor').style.visibility = 'visible';
+                    document.getElementById('add_client').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Клиент") {
-                    document.getElementById('delete_client').style.visibility = 'visible';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
+                    document.getElementById('add_client').style.visibility = 'visible';
+                    document.getElementById('add_dogovor').style.visibility = 'hidden';
                 }
 
             }
