@@ -20,7 +20,7 @@ $sql = "DELETE FROM `договор` WHERE `Номер_договора`=$number
 
 if (mysqli_query($conn, $sql)) {
     echo "Данные успешно удалены";
-    include('C:\OpenServer\domains\localhost\BD_Proj\index.html');
+    include('C:\OpenServer\domains\localhost\BD_Proj\delete.html');
 } else {
     echo "Ошибка при подключении к бд";
     include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<?php require_once('ConnectDB.php'); ?>
 <div id="page">
     <div id="header">
 
@@ -20,25 +21,44 @@
         <h1>Разработка программных продуктов</h1>
     </div>
     <div id="middle">
-
-
-        <div id="look">
+        <div id="add">
             <p>Просмотр данных в таблице</p>
             <p class="select_table">Выберите таблицу для просмотра данных:</p>
-            <form method="post" id="look_form">
-                <select name="look_table">
-                    <option name="Договор">Договор</option>
-                    <option name="Клиент">Клиент</option>
-                    <option name="Вид_функционала">Вид функционала</option>
-                    <option name="Готовность_проекта">Готовность проекта</option>
-                    <option name="Набор_функционала">Набор функционала</option>
-                    <option name="Отдел">Отдел</option>
-                    <option name="Работник">Работник</option>
-                    <option name="Специализация">Специализация</option>
-                    <option name="Техническое_задание">Техническое задание</option>
-                </select>
+            <form method="post" action="look.php">
+                <select name="show_table" id="show_table">
+                    <option value="Договор">Договор</option>
+                    <option value="Клиент">Клиент</option>
+                    <option value="Вид_функционала">Вид функционала</option>
+                    <option value="Готовность_проекта">Готовность проекта</option>
+                    <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Отдел">Отдел</option>
+                    <option value="Работник">Работник</option>
+                    <option value="Специализация">Специализация</option>
+                    <option value="Техническое_задание">Техническое задание</option>
+                </select><br>
+                <input type="submit" id="look_button" value="Отобразить данные из таблицы">
+                <style>
+                    #look_button {
+                        margin-top: 10px;
+                        margin-left: 0px;
+                        width: 300px;
+                    }
+
+                    table th {
+                        font-weight: bold;
+                        padding: 5px;
+                        background: #efefef;
+                        border: 1px solid #dddddd;
+                    }
+
+                </style>
             </form>
+
+
+
         </div>
+
+
 
     </div>
     <div id="footer">

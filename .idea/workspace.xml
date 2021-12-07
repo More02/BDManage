@@ -29,6 +29,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -43,7 +44,12 @@
       <workItem from="1638382911241" duration="5679000" />
       <workItem from="1638724999483" duration="4318000" />
       <workItem from="1638729498615" duration="10571000" />
-      <workItem from="1638774931339" duration="4041000" />
+      <workItem from="1638774931339" duration="5350000" />
+      <workItem from="1638780375825" duration="24000" />
+      <workItem from="1638780428334" duration="14000" />
+      <workItem from="1638781827287" duration="76000" />
+      <workItem from="1638781907343" duration="36000" />
+      <workItem from="1638903048766" duration="3923000" />
     </task>
     <servers />
   </component>
@@ -75,13 +81,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1638778168671" />
-    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1638739016728">
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1638781904440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1638739016728" />
-    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1638778731316">
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1638781904440" />
+    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1638779249522">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1638778731316" />
+    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1638779249522" />
   </component>
 </project>
