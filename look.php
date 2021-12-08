@@ -15,7 +15,7 @@
             <li><a href="delete.html">Удаление</a></li>
             <li><a href="update.html">Обновление</a></li>
             <li><a href="look.html">Просмотр</a></li>
-            <li><a href="filtr.html">Фильтрация</a></li>
+            <li><a href="filtr.php">Фильтрация</a></li>
         </ul>
 
         <h1>Разработка программных продуктов</h1>
