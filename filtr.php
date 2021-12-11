@@ -24,7 +24,7 @@
         <div id="add">
             <p>Фильтрация данных</p>
 
-            <form method="post" id="filtr_form">
+            <form method="post" id="filtr_form" style="margin-left: -100px;">
                 <p class="select_table">Выберите поля для фильтрации</p>
                 <input type="text" placeholder="Номер договора" name="number_dog" class="check2" id="number_dog"><br>
                 <input type="text" placeholder="Введите работника" name="rabotnik" class="check2" id="rabotnik"><br>
@@ -119,7 +119,11 @@ ORDER BY `Номер_договора`";
                     if ($result->num_rows > 0) {
                         echo "<table style='width: 60%;
                         border: 1px solid #dddddd;
-                        border-collapse: collapse;'>
+                        border-collapse: collapse;
+                        position: absolute;
+                        float:right;
+                        margin-top: -600px;
+                        margin-left: 460px;'>
                         <tbody><tr>
                    <th>" . "Номер"
                             . "</th><th>" . "Работник"
