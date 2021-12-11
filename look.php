@@ -14,7 +14,7 @@
             <li><a href="index_add.html">Добавление</a></li>
             <li><a href="delete.html">Удаление</a></li>
             <li><a href="update.html">Обновление</a></li>
-            <li><a href="look.html">Просмотр</a></li>
+            <li><a href="look.php">Просмотр</a></li>
             <li><a href="filtr.php">Фильтрация</a></li>
         </ul>
 
@@ -59,7 +59,7 @@
 
                     if ($conn->connect_error) {
                         printf("Соединение не удалось: %s\n", $conn->connect_error);
-                        include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');
+                        include('index2.html');
                         exit();
                     }
 
@@ -342,7 +342,7 @@
 
                     } else {
                         echo "Ошибка при подключении к бд";
-                        include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');
+                        include('index2.html');
                         printf(mysqli_error($conn));
                     }
 

@@ -8,7 +8,7 @@ $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
 if ($conn->connect_error) {
     printf("Соединение не удалось: %s\n", $conn->connect_error);
-    include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');
+    include('index2.html');
     exit();
 }
 
@@ -122,10 +122,10 @@ if ($name_table=='Техническое_задание') {
 
 if (mysqli_query($conn, $sql)) {
     echo "Данные успешно обновлены";
-    include('C:\OpenServer\domains\localhost\BD_Proj\update.html');
+    include('update.html');
 } else {
     echo "Ошибка при подключении к бд";
-    include('C:\OpenServer\domains\localhost\BD_Proj\index2.html');
+    include('index2.html');
     printf(mysqli_error($conn));
 }
 
