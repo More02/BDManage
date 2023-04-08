@@ -64,8 +64,8 @@
                 <input type="text" placeholder="Номер разработки" name="number_development"><br>
                 <input type="text" placeholder="Номер тестирования" name="number_test"><br>
                 <input type="text" placeholder="Стоимость договора" name="cost_dogovor"><br>
-                <input type="text" placeholder="Дата заключения" name="date_begin"><br>
-                <input type="text" placeholder="Дата сдачи" name="date_end"><br>
+                <input type="text" placeholder="Дата заключения в формате YYYY-MM-DD" name="date_begin"><br>
+                <input type="text" placeholder="Дата сдачи в формате YYYY-MM-DD" name="date_end"><br>
                 <input type="submit" value="Добавить">
                 <input type="text" name="name_add_table_dogovor" style="visibility: hidden"
                 id="name_add_table_dogovor"><br>
@@ -77,7 +77,7 @@
                 <input type="text" placeholder="Имя клиента" name="name"><br>
                 <input type="text" placeholder="Отчество клиента" name="last_name"><br>
                 <input type="text" placeholder="Номер телефона" name="phone_number"><br>
-                <input type="text" placeholder="E-Mail" name="e-mail"><br>
+                <input type="text" placeholder="E-Mail" name="e_mail"><br>
                 <input type="submit" value="Добавить">
                 <input type="text" name="name_add_table_client" style="visibility: hidden"
                        id="name_add_table_client"><br>
@@ -144,7 +144,7 @@
             </form>
             <form method="post" id="add_form_report" action="insert.php">
                 <div id="add_report" class = "hidden_div">
-                    <input type="text" placeholder="Название отчёта" name="name_otdel"><br>
+                    <input type="text" placeholder="Название отчёта" name="name_report"><br>
                     <input type="text" placeholder="Ссылка на файл отчёта" name="link_report"><br>
                     <input type="submit" value="Добавить">
                     <input type="text" name="name_add_table_report" style="visibility: hidden"
@@ -158,9 +158,9 @@
                     <input type="text" placeholder="Отчество работника" name="last_name_work"><br>
                     <input type="text" placeholder="Количество открытых проектов" name="number_open_proj"><br>
                     <input type="text" placeholder="Номер специализации" name="number_spec"><br>
-                    <input type="text" placeholder="Номер пользовательской роли" name="number_spec"><br>
+                    <input type="text" placeholder="Номер пользовательской роли" name="number_role"><br>
                     <input type="text" placeholder="Номер отдела" name="number_otdel"><br>
-                    <input type="text" placeholder="Номер телефона" name="number_otdel"><br>
+                    <input type="text" placeholder="Номер телефона" name="phone_number"><br>
                     <input type="text" placeholder="E-Mail" name="e-mail"><br>
                     <input type="text" placeholder="user id" name="user_id"><br>
                     <input type="text" placeholder="Заработная плата в час" name="cost_in_hour"><br>
@@ -172,7 +172,7 @@
             <form method="post" id="add_form_development" action="insert.php">
                 <div id="add_development" class = "hidden_div">
                     <input type="text" placeholder="Ссылка на отчёт о разработке" name="link_development"><br>
-                    <input type="text" placeholder="Затраченное время на разработку" name="time_development"><br>
+                    <input type="text" placeholder="Затраченное количество часов на разработкуs" name="time_development"><br>
                     <input type="text" placeholder="Ссылка на макет" name="link_maket"><br>
                     <input type="submit" value="Добавить">
                     <input type="text" name="name_add_table_development" style="visibility: hidden"
@@ -190,7 +190,7 @@
             <form method="post" id="add_form_test" action="insert.php">
                 <div id="add_test" class = "hidden_div">
                     <input type="text" placeholder="Ссылка на отчёт о тестировании" name="link_test"><br>
-                    <input type="text" placeholder="Затраченное время на тестирование" name="time_test"><br>
+                    <input type="text" placeholder="Затраченное количество часов на тестирование" name="time_test"><br>
                     <input type="submit" value="Добавить">
                     <input type="text" name="name_add_table_test" style="visibility: hidden"
                            id="name_add_table_test"><br>
@@ -212,306 +212,107 @@
             <button id="add_button" type="submit">Отобразить поля добавления</button>
         </div>
         <script>
-            document.getElementById('add_dogovor').style.visibility = 'hidden';
-            document.getElementById('add_client').style.visibility = 'hidden';
-            document.getElementById('add_plan').style.visibility = 'hidden';
-            document.getElementById('add_user_role').style.visibility = 'hidden';
-            document.getElementById('add_type_function').style.visibility = 'hidden';
-            document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-            document.getElementById('add_nabor_function').style.visibility = 'hidden';
-            document.getElementById('add_name_nabor').style.visibility = 'hidden';
-            document.getElementById('add_otdel').style.visibility = 'hidden';
-            document.getElementById('add_report').style.visibility = 'hidden';
-            document.getElementById('add_rabotnik').style.visibility = 'hidden';
-            document.getElementById('add_development').style.visibility = 'hidden';
-            document.getElementById('add_spec').style.visibility = 'hidden';
-            document.getElementById('add_test').style.visibility = 'hidden';
-            document.getElementById('add_tech_zad').style.visibility = 'hidden';
-
+            function hideElements() {
+                document.getElementById('add_dogovor').style.visibility = 'hidden';
+                document.getElementById('add_client').style.visibility = 'hidden';
+                document.getElementById('add_plan').style.visibility = 'hidden';
+                document.getElementById('add_user_role').style.visibility = 'hidden';
+                document.getElementById('add_type_function').style.visibility = 'hidden';
+                document.getElementById('add_name_status_proj').style.visibility = 'hidden';
+                document.getElementById('add_nabor_function').style.visibility = 'hidden';
+                document.getElementById('add_name_nabor').style.visibility = 'hidden';
+                document.getElementById('add_otdel').style.visibility = 'hidden';
+                document.getElementById('add_report').style.visibility = 'hidden';
+                document.getElementById('add_rabotnik').style.visibility = 'hidden';
+                document.getElementById('add_development').style.visibility = 'hidden';
+                document.getElementById('add_spec').style.visibility = 'hidden';
+                document.getElementById('add_test').style.visibility = 'hidden';
+                document.getElementById('add_tech_zad').style.visibility = 'hidden';
+            }
+            hideElements();
             let a=document.getElementById('add_table').value;
-
-            var elt = document.getElementById('add_table');
-
+            let elt = document.getElementById('add_table');
 
             document.getElementById('add_button').onclick=function () {
-
-                //alert (elt.options[elt.selectedIndex].text);
-                //alert(a);
                 if (elt.options[elt.selectedIndex].text=="Договор") {
                     document.getElementById('name_add_table_dogovor').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_dogovor').style.visibility = 'visible';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
-                    document.getElementById('name_add_table').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    // document.getElementById('name_add_table').value = document.getElementById('add_table').options[elt.selectedIndex].value;
                 }
                 if (elt.options[elt.selectedIndex].text=="Клиент") {
                     document.getElementById('name_add_table_client').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_client').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="План") {
                     document.getElementById('name_add_table_plan').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_plan').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Пользовательская роль") {
                     document.getElementById('name_add_table_user_role').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_user_role').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Вид функционала") {
                     document.getElementById('name_add_table_function').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_type_function').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Готовность проекта") {
                     document.getElementById('name_add_table_status_proj').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_name_status_proj').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Набор функционала") {
                     document.getElementById('name_add_table_nabor_function').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_nabor_function').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Название набора") {
                     document.getElementById('name_add_table_name_nabor').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_name_nabor').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Отдел") {
                     document.getElementById('name_add_table_otdel').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_otdel').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Отчёт") {
                     document.getElementById('name_add_table_report').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_report').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Работник") {
                     document.getElementById('name_add_table_rabotnik').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_rabotnik').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Разработка") {
                     document.getElementById('name_add_table_development').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_development').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Специализация") {
                     document.getElementById('name_add_spec').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_spec').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Тестирование") {
-                    document.getElementById('name_add_spec').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    document.getElementById('name_add_table_test').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_test').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
-                    document.getElementById('add_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Техническое задание") {
                     document.getElementById('name_add_table_tech_zad').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('add_tech_zad').style.visibility = 'visible';
-                    document.getElementById('add_dogovor').style.visibility = 'hidden';
-                    document.getElementById('add_client').style.visibility = 'hidden';
-                    document.getElementById('add_plan').style.visibility = 'hidden';
-                    document.getElementById('add_user_role').style.visibility = 'hidden';
-                    document.getElementById('add_type_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('add_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('add_name_nabor').style.visibility = 'hidden';
-                    document.getElementById('add_otdel').style.visibility = 'hidden';
-                    document.getElementById('add_report').style.visibility = 'hidden';
-                    document.getElementById('add_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('add_development').style.visibility = 'hidden';
-                    document.getElementById('add_test').style.visibility = 'hidden';
-                    document.getElementById('add_spec').style.visibility = 'hidden';
                 }
 
             }
         </script>
-
 
     </div>
     <div id="footer">
