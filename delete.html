@@ -7,19 +7,28 @@
 </head>
 <body>
 <?php require_once('ConnectDB.php'); ?>
+<div id="header">
+
+    <ul id="main_menu">
+        <li><a href="index_add.html">Работа с базой данных</a></li>
+        <li><a href="delete.html">Введение информации в файлы</a></li>
+        <li><a href="update.html">Формирование отчётов/планов</a></li>
+        <li><a href="look.php">Загрузка файлов</a></li>
+    </ul>
+    <ul>
+        <li><a href="index_add.html">Добавление</a></li>
+        <li><a href="delete.html">Удаление</a></li>
+        <li><a href="update.html">Обновление</a></li>
+        <li><a href="look.php">Просмотр</a></li>
+        <li><a href="filtr.php">Фильтрация</a></li>
+    </ul>
+
+    <h1>Разработка программных продуктов</h1>
+
+
+</div>
+
 <div id="page">
-    <div id="header">
-
-        <ul>
-            <li><a href="index_add.html">Добавление</a></li>
-            <li><a href="delete.html">Удаление</a></li>
-            <li><a href="update.html">Обновление</a></li>
-            <li><a href="look.php">Просмотр</a></li>
-            <li><a href="filtr.php">Фильтрация</a></li>
-        </ul>
-
-        <h1>Разработка программных продуктов</h1>
-    </div>
     <div id="middle">
         <div id="add">
             <p>Удаление данных из базы</p>
@@ -28,18 +37,24 @@
                 <select name="delete_table" id="delete_table">
                     <option value="Договор">Договор</option>
                     <option value="Клиент">Клиент</option>
+                    <option value="План">План</option>
+                    <option value="Пользовательская_роль">Пользовательская роль</option>
                     <option value="Вид_функционала">Вид функционала</option>
                     <option value="Готовность_проекта">Готовность проекта</option>
                     <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Название_набора">Название набора</option>
                     <option value="Отдел">Отдел</option>
+                    <option value="Отчёт">Отчёт</option>
                     <option value="Работник">Работник</option>
+                    <option value="Разработка">Разработка</option>
                     <option value="Специализация">Специализация</option>
+                    <option value="Тестирование">Тестирование</option>
                     <option value="Техническое_задание">Техническое задание</option>
                 </select>
 
             </form>
             <form method="post"  action="delete.php">
-                <div id="delete_dogovor">
+                <div id="delete_dogovor" class = "hidden_div">
                     <input type="text" placeholder="Номер договора" name="number_dog"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_dogovor" style="visibility: hidden"
@@ -47,7 +62,7 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_client">
+                <div id="delete_client" class = "hidden_div">
                     <input type="text" placeholder="Номер клиента" name="number_client"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_client" style="visibility: hidden"
@@ -55,7 +70,23 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_type_function">
+                <div id="delete_plan" class = "hidden_div">
+                    <input type="text" placeholder="Номер плана" name="number_plan"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_table_plan" style="visibility: hidden"
+                           id="name_delete_table_plan"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_user_role" class = "hidden_div">
+                    <input type="text" placeholder="Номер пользовательской роли" name="number_user_role"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_table_user_role" style="visibility: hidden"
+                           id="name_delete_table_user_role"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_type_function" class = "hidden_div">
                     <input type="text" placeholder="Номер функции" name="number_function"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_function" style="visibility: hidden"
@@ -63,7 +94,7 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_name_status_proj">
+                <div id="delete_name_status_proj" class = "hidden_div">
                     <input type="text" placeholder="Номер статуса готовности проекта" name="number_status_proj"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_status_proj" style="visibility: hidden"
@@ -71,15 +102,23 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_nabor_function">
+                <div id="delete_nabor_function" class = "hidden_div">
                     <input type="text" placeholder="Номер набора функционала" name="number_nabor_func"><br>
                     <input type="submit" value="Удалить">
-                    <input type="text" name="name_delete_table_status_nabor_function" style="visibility: hidden"
-                           id="name_delete_table_status_nabor_function"><br>
+                    <input type="text" name="name_delete_table_nabor_function" style="visibility: hidden"
+                           id="name_delete_table_nabor_function"><br>
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_otdel">
+                <div id="delete_name_function" class = "hidden_div">
+                    <input type="text" placeholder="Номер названия набора" name="number_name_function"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_table_name_function" style="visibility: hidden"
+                           id="name_delete_table_name_function"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_otdel" class = "hidden_div">
                     <input type="text" placeholder="Номер отдела" name="number_otdel"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_otdel" style="visibility: hidden"
@@ -87,7 +126,15 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_rabotnik">
+                <div id="delete_report" class = "hidden_div">
+                    <input type="text" placeholder="Номер отчёта" name="number_report"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_table_report" style="visibility: hidden"
+                           id="name_delete_table_report"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_rabotnik" class = "hidden_div">
                     <input type="text" placeholder="Номер работника" name="number_work"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_rabotnik" style="visibility: hidden"
@@ -95,7 +142,15 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_spec">
+                <div id="delete_development" class = "hidden_div">
+                    <input type="text" placeholder="Номер разработки" name="number_devlopment"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_table_development" style="visibility: hidden"
+                           id="name_delete_table_development"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_spec" class = "hidden_div">
                     <input type="text" placeholder="Номер специализации" name="number_spec"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_spec" style="visibility: hidden"
@@ -103,198 +158,123 @@
                 </div>
             </form>
             <form method="post" action="delete.php">
-                <div id="delete_tech_zad">
+                <div id="delete_test" class = "hidden_div">
+                    <input type="text" placeholder="Номер тестирования" name="number_test"><br>
+                    <input type="submit" value="Удалить">
+                    <input type="text" name="name_delete_test" style="visibility: hidden"
+                           id="name_delete_test"><br>
+                </div>
+            </form>
+            <form method="post" action="delete.php">
+                <div id="delete_tech_zad" class = "hidden_div">
                     <input type="text" placeholder="Номер технического задания" name="number_tz"><br>
                     <input type="submit" value="Удалить">
                     <input type="text" name="name_delete_table_tech_zad" style="visibility: hidden"
                            id="name_delete_table_tech_zad"><br>
                 </div>
             </form>
-            <style>
-                #delete_dogovor {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
 
-                #delete_client {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_type_function {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_name_status_proj {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_nabor_function {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_otdel {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_rabotnik {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_spec {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-                #delete_tech_zad {
-                    float: right;
-                    position: absolute;
-                    margin-top: -41px;
-                    margin-left: 500px;
-                }
-            </style>
             <button id="delete_button" type="submit">Отобразить поля удаления</button>
         </div>
         <script>
-            document.getElementById('delete_dogovor').style.visibility = 'hidden';
-            document.getElementById('delete_client').style.visibility = 'hidden';
-            document.getElementById('delete_type_function').style.visibility = 'hidden';
-            document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-            document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-            document.getElementById('delete_otdel').style.visibility = 'hidden';
-            document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-            document.getElementById('delete_spec').style.visibility = 'hidden';
-            document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+            function hideElements() {
+                document.getElementById('delete_dogovor').style.visibility = 'hidden';
+                document.getElementById('delete_client').style.visibility = 'hidden';
+                document.getElementById('delete_plan').style.visibility = 'hidden';
+                document.getElementById('delete_user_role').style.visibility = 'hidden';
+                document.getElementById('delete_type_function').style.visibility = 'hidden';
+                document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
+                document.getElementById('delete_nabor_function').style.visibility = 'hidden';
+                document.getElementById('delete_name_function').style.visibility = 'hidden';
+                document.getElementById('delete_otdel').style.visibility = 'hidden';
+                document.getElementById('delete_report').style.visibility = 'hidden';
+                document.getElementById('delete_rabotnik').style.visibility = 'hidden';
+                document.getElementById('delete_development').style.visibility = 'hidden';
+                document.getElementById('delete_spec').style.visibility = 'hidden';
+                document.getElementById('delete_test').style.visibility = 'hidden';
+                document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+            }
+            hideElements();
 
             let a=document.getElementById('delete_table').value;
-
-            var elt = document.getElementById('delete_table');
+            let elt = document.getElementById('delete_table');
 
 
             document.getElementById('delete_button').onclick=function () {
-                //alert (elt.options[elt.selectedIndex].text);
-                //alert(a);
                 if (elt.options[elt.selectedIndex].text=="Договор") {
                     document.getElementById('name_delete_table_dogovor').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_dogovor').style.visibility = 'visible';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Клиент") {
                     document.getElementById('name_delete_table_client').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_client').style.visibility = 'visible';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="План") {
+                    document.getElementById('name_delete_table_plan').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_plan').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Пользовательская роль") {
+                    document.getElementById('name_delete_table_user_role').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_user_role').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Вид функционала") {
                     document.getElementById('name_delete_table_function').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_type_function').style.visibility = 'visible';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Готовность проекта") {
                     document.getElementById('name_delete_table_status_proj').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_name_status_proj').style.visibility = 'visible';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
                 }
                 if (elt.options[elt.selectedIndex].text=="Набор функционала") {
-                    document.getElementById('name_delete_table_status_nabor_function').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    document.getElementById('name_delete_table_nabor_function').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_nabor_function').style.visibility = 'visible';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="Название набора") {
+                    document.getElementById('name_delete_table_name_function').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_name_function').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Отдел") {
                     document.getElementById('name_delete_table_otdel').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_otdel').style.visibility = 'visible';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="Отчёт") {
+                    document.getElementById('name_delete_table_report').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_report').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Работник") {
                     document.getElementById('name_delete_table_rabotnik').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_rabotnik').style.visibility = 'visible';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="Разработка") {
+                    document.getElementById('name_delete_table_development').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_development').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Специализация") {
                     document.getElementById('name_delete_spec').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_spec').style.visibility = 'visible';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_type_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
-                    document.getElementById('delete_tech_zad').style.visibility = 'hidden';
+                }
+                if (elt.options[elt.selectedIndex].text=="Тестирование") {
+                    document.getElementById('name_delete_test').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('delete_test').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Техническое задание") {
                     document.getElementById('name_delete_table_tech_zad').value = document.getElementById('delete_table').options[elt.selectedIndex].value;
+                    hideElements();
                     document.getElementById('delete_tech_zad').style.visibility = 'visible';
-                    document.getElementById('delete_spec').style.visibility = 'hidden';
-                    document.getElementById('delete_rabotnik').style.visibility = 'hidden';
-                    document.getElementById('delete_otdel').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_name_status_proj').style.visibility = 'hidden';
-                    document.getElementById('delete_nabor_function').style.visibility = 'hidden';
-                    document.getElementById('delete_dogovor').style.visibility = 'hidden';
-                    document.getElementById('delete_client').style.visibility = 'hidden';
                 }
 
             }
