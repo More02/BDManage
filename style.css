@@ -1,32 +1,46 @@
 @font-face {
-    font-family: Shancallunaregular;
-    src: url(Shancallunaregular.ttf);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
-
+.hidden_div {
+    float: right;
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 500px;
+}
 
 #page{
     width: 80%;
     height: 100%;
     min-height: 800px;
-    background: beige;
+    background: white;
     margin: 0 auto;
-    margin-top: -22px;
+    margin-top: 0px;
     margin-bottom: -10px;
-    color: black;
+    color: #000056;
 }
 body {
-    background: beige;
+    background: white;
     alignment: center;
-    font-family: Shancallunaregular,sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 #header {
     text-align: center;
+    background: aliceblue;
+    min-height: 60px;
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -25px;
 }
 ul {
     float:right;
     list-style-type: none;
-    height: 60px;
     margin: 0 auto;
+    min-height: 60px;
 
 }
 li {
@@ -36,19 +50,38 @@ li {
     position: relative;
     transform: translateY(80%);
 }
+#main_menu {
+    text-align: center;
+    min-height: 60px;
+}
+#main_menu a {
+    opacity: 1;
+    font-weight: bold;
+}
 h1 {
-    padding-top: 90px;
+    padding-top: 120px;
+    color: #000056;
+    font-weight: lighter;
+    padding-bottom: 10px;
 }
 a {
     text-decoration: none;
-    color: black;
+    color: #000056;
+    opacity: .5;
+    font-weight: lighter;
+}
+a:hover {
+    color: cornflowerblue;
+    text-decoration: none;
 }
 p {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
+    opacity: .5;
+    font-weight: lighter;
 }
 .select_table {
-    font-size: 15px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -70,21 +103,6 @@ select {
 #look {
     padding-left: 50px;
 }
-#add_dogovor {
-    float: right;
-    position: absolute;
-    margin-top: -41px;
-    margin-left: 500px;
-}
-#add_client {
-    float: right;
-    position: absolute;
-    margin-top: -41px;
-    margin-left: 500px;
-}
-
-
-
 input {
     margin-right:50px;
     margin-left:50px;
@@ -94,9 +112,25 @@ input {
     margin-bottom: 15px;
 }
 button {
-    background: darkgray;
+    background: aliceblue;
     width: 300px;
     height: 40px;
     font-size: 15px;
     margin-top: 20px;
+    border-color: #463a93;
+    border-style: solid;
+}
+button:hover {
+    background: #d1e7fc;
+}
+form input[type="submit"] {
+    background-color: aliceblue;
+    width: 550px;
+    margin-top: 15px;
+    margin-left: 25px;
+    border-color: #463a93;
+    border-style: solid;
+}
+form input[type="submit"]:hover {
+    background: #d1e7fc;
 }
