@@ -7,19 +7,28 @@
 </head>
 <body>
 <?php require_once('ConnectDB.php'); ?>
+<div id="header">
+
+    <ul id="main_menu">
+        <li><a href="index_add.html">Работа с базой данных</a></li>
+        <li><a href="delete.html">Введение информации в файлы</a></li>
+        <li><a href="update.html">Формирование отчётов/планов</a></li>
+        <li><a href="look.php">Загрузка файлов</a></li>
+    </ul>
+    <ul>
+        <li><a href="index_add.html">Добавление</a></li>
+        <li><a href="delete.html">Удаление</a></li>
+        <li><a href="update.html">Обновление</a></li>
+        <li><a href="look.php">Просмотр</a></li>
+        <li><a href="filtr.php">Фильтрация</a></li>
+    </ul>
+
+    <h1>Разработка программных продуктов</h1>
+
+
+</div>
+
 <div id="page">
-    <div id="header">
-
-        <ul>
-            <li><a href="index_add.html">Добавление</a></li>
-            <li><a href="delete.html">Удаление</a></li>
-            <li><a href="update.html">Обновление</a></li>
-            <li><a href="look.php">Просмотр</a></li>
-            <li><a href="filtr.php">Фильтрация</a></li>
-        </ul>
-
-        <h1>Разработка программных продуктов</h1>
-    </div>
     <div id="middle">
         <div id="add">
             <p>Фильтрация данных</p>
