@@ -18,6 +18,9 @@ if (!empty($_POST['name_update_table_dogovor'])) {
 if (!empty($_POST['name_update_table_client'])) {
     $name_table = $_POST['name_update_table_client'];
 }
+if (!empty($_POST['name_update_table_development_team'])) {
+    $name_table = $_POST['name_update_table_development_team'];
+}
 if (!empty($_POST['name_update_table_plan'])) {
     $name_table = $_POST['name_update_table_plan'];
 }
@@ -32,6 +35,9 @@ if (!empty($_POST['name_update_table_status_proj'])) {
 }
 if (!empty($_POST['name_update_table_nabor_function'])) {
     $name_table = $_POST['name_update_table_nabor_function'];
+}
+if (!empty($_POST['name_update_development_name_team'])) {
+    $name_table = $_POST['name_update_development_name_team'];
 }
 if (!empty($_POST['name_update_table_name_nabor'])) {
     $name_table = $_POST['name_update_table_name_nabor'];
@@ -86,6 +92,13 @@ if ($name_table=='Клиент') {
     $sql = "UPDATE `клиент` SET `Фамилия_клиента` = '$surname',
 `Имя_клиента` = '$name', `Отчество_клиента` = '$last_name', `Номер_телефона` = '$phone_number', `E_Mail` = '$e_mail' WHERE `Номер_клиента`=$number_client";
 }
+if ($name_table=='Команда_разработчиков') {
+    $number_team_development = $_POST['number_team_development'];
+    $number_rabotnik = $_POST['number_rabotnik'];
+    $number_hours = $_POST['number_hours'];
+    $number_team_name = $_POST['number_team_name'];
+    $sql = "UPDATE `команда_разработчиков` SET `Номер_работника` = $number_rabotnik, `Затраченное_количество_часов_на_работу` = $number_hours, `Номер_названия_команды` = $number_team_name WHERE `Номер_команды_разработчиков`=$number_team_development";
+}
 if ($name_table=='План') {
     $number_plan = $_POST['number_plan'];
     $name_plan = $_POST['name_plan'];
@@ -116,6 +129,11 @@ if ($name_table=='Набор_функционала') {
     $komment_to_function = $_POST['komment_to_function'];
     $number_name_nabor = $_POST['number_name_nabor'];
     $sql = "UPDATE `набор_функционала` SET `Номер_функции` = $number_function, `Комментарий_к_функционалу` = '$komment_to_function', `Код_названия_набора` = $number_name_nabor WHERE `Номер_набора_функционала`=$number_nabor_func";
+}
+if ($name_table=='Название_команды_разработчиков') {
+    $number_name_team = $_POST['number_name_team'];
+    $name_team = $_POST['name_team'];
+    $sql = "UPDATE `название_команды_разработчиков` SET `Название_команды` = '$name_team' WHERE `Номер_названия_команды`=$number_name_team";
 }
 if ($name_table=='Название_набора') {
     $number_name_nabor = $_POST['number_name_nabor'];

@@ -18,6 +18,9 @@ if (!empty($_POST['name_add_table_dogovor'])) {
 if (!empty($_POST['name_add_table_client'])) {
     $name_table = $_POST['name_add_table_client'];
 }
+if (!empty($_POST['name_add_table_development_team'])) {
+    $name_table = $_POST['name_add_table_development_team'];
+}
 if (!empty($_POST['name_add_table_plan'])) {
     $name_table = $_POST['name_add_table_plan'];
 }
@@ -32,6 +35,9 @@ if (!empty($_POST['name_add_table_status_proj'])) {
 }
 if (!empty($_POST['name_add_table_nabor_function'])) {
     $name_table = $_POST['name_add_table_nabor_function'];
+}
+if (!empty($_POST['name_add_development_name_team'])) {
+    $name_table = $_POST['name_add_development_name_team'];
 }
 if (!empty($_POST['name_add_table_name_nabor'])) {
     $name_table = $_POST['name_add_table_name_nabor'];
@@ -84,6 +90,12 @@ if ($name_table=='Клиент') {
     $sql = "INSERT INTO `клиент`(`Фамилия_клиента`, 
 `Имя_клиента`, `Отчество_клиента`, `Номер_телефона`, `E_Mail`) VALUES ('$surname','$name','$last_name', '$phone_number', '$e_mail')";
 }
+if ($name_table=='Команда_разработчиков') {
+    $number_rabotnik = $_POST['number_rabotnik'];
+    $number_hours = $_POST['number_hours'];
+    $number_team_name = $_POST['number_team_name'];
+    $sql = "INSERT INTO `команда_разработчиков`(`Номер_работника`, `Затраченное_количество_часов_на_работу`, `Номер_названия_команды`) VALUES ($number_rabotnik, $number_hours,$number_team_name)";
+}
 if ($name_table=='План') {
     $name_plan = $_POST['name_plan'];
     $link_plan = $_POST['link_plan'];
@@ -110,6 +122,10 @@ if ($name_table=='Набор_функционала') {
     $number_name_nabor = $_POST['number_name_nabor'];
     $sql = "INSERT INTO `набор_функционала`(`Номер_функции`, `Комментарий_к_функционалу`, `Код_названия_набора`
 ) VALUES ($number_function,'$komment_to_function',$number_name_nabor)";
+}
+if ($name_table=='Название_команды_разработчиков') {
+    $name_team = $_POST['name_team'];
+    $sql = "INSERT INTO `название_команды_разработчиков`(`Название_команды`) VALUES ('$name_team')";
 }
 if ($name_table=='Название_набора') {
     $name_nabor = $_POST['name_nabor'];

@@ -33,11 +33,13 @@
                 <select name="show_table" id="show_table">
                     <option value="Договор">Договор</option>
                     <option value="Клиент">Клиент</option>
+                    <option value="Команда_разработчиков">Команда разработчиков</option>
                     <option value="План">План</option>
                     <option value="Пользовательская_роль">Пользовательская роль</option>
                     <option value="Вид_функционала">Вид функционала</option>
                     <option value="Готовность_проекта">Готовность проекта</option>
                     <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Название_команды_разработчиков">Название команды разработчиков</option>
                     <option value="Название_набора">Название набора</option>
                     <option value="Отдел">Отдел</option>
                     <option value="Отчёт">Отчёт</option>
@@ -172,6 +174,37 @@
                                 echo "</tbody></table>";
                             }
                         }
+                        if ($name_table=='Команда_разработчиков') {
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<table style='width: 60%;
+                        border: 1px solid #dddddd;
+                        border-collapse: collapse;'>
+                        <tbody><tr>
+                   <th>" . "Номер команды разработчиков"
+                                    . "</th><th>" . "Номер работника"
+                                    . "</th><th>" . "Затраченное количество часов на работу"
+                                    . "</th><th>" . "Номер названия команды"
+                                    . "</th>
+                 </tr>";
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+
+                                    echo
+                                        "<tr><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Номер_команды_разработчиков"]
+                                        . "</td><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Номер_работника"]
+                                        . "</td><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Затраченное_количество_часов_на_работу"]
+                                        . "</td><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Номер_названия_команды"]
+
+                                        . "</td></tr>";
+                                }
+                                echo "</tbody></table>";
+                            }
+                        }
                         if ($name_table=='План') {
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
@@ -298,6 +331,30 @@
                         padding: 5px; text-align: center'>" . $row["Комментарий_к_функционалу"]
                                         . "</td><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Код_названия_набора"]
+                                        . "</td></tr>";
+                                }
+                                echo "</tbody></table>";
+                            }
+                        }
+                        if ($name_table=='Название_команды_разработчиков') {
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<table style='width: 60%;
+                        border: 1px solid #dddddd;
+                        border-collapse: collapse;'>
+                        <tbody><tr>
+                   <th>" . "Номер названия команды"
+                                    . "</th><th>" . "Название команды"
+                                    . "</th>
+                 </tr>";
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+
+                                    echo
+                                        "<tr><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Номер_названия_команды"]
+                                        . "</td><td style = 'border: 1px solid #dddddd;
+                        padding: 5px; text-align: center'>" . $row["Название_команды"]
                                         . "</td></tr>";
                                 }
                                 echo "</tbody></table>";

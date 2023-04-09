@@ -37,11 +37,13 @@
                 <select name="update_table" id="update_table">
                     <option value="Договор">Договор</option>
                     <option value="Клиент">Клиент</option>
+                    <option value="Команда_разработчиков">Команда разработчиков</option>
                     <option value="План">План</option>
                     <option value="Пользовательская_роль">Пользовательская роль</option>
                     <option value="Вид_функционала">Вид функционала</option>
                     <option value="Готовность_проекта">Готовность проекта</option>
                     <option value="Набор_функционала">Набор функционала</option>
+                    <option value="Название_команды_разработчиков">Название команды разработчиков</option>
                     <option value="Название_набора">Название набора</option>
                     <option value="Отдел">Отдел</option>
                     <option value="Отчёт">Отчёт</option>
@@ -82,6 +84,17 @@
                     <input type="submit" value="Обновить">
                     <input type="text" name="name_update_table_client" style="visibility: hidden"
                            id="name_update_table_client"><br>
+                </div>
+            </form>
+            <form method="post" id="update_form_development_team" action="update.php">
+                <div id="update_development_team" class = "hidden_div">
+                    <input type="text" placeholder="Номер команды разработчиков для обновления" name="number_team_development"><br>
+                    <input type="text" placeholder="Новый номер работника" name="number_rabotnik"><br>
+                    <input type="text" placeholder="Новое затраченное количество часов на работу" name="number_hours"><br>
+                    <input type="text" placeholder="Новый номер названия команды" name="number_team_name"><br>
+                    <input type="submit" value="Обновить">
+                    <input type="text" name="name_update_table_development_team" style="visibility: hidden"
+                           id="name_update_table_development_team"><br>
                 </div>
             </form>
             <form method="post" id="update_form_plan" action="update.php">
@@ -130,6 +143,15 @@
                     <input type="submit" value="Обновить">
                     <input type="text" name="name_update_table_nabor_function" style="visibility: hidden"
                            id="name_update_table_nabor_function"><br>
+                </div>
+            </form>
+            <form method="post" id="update_form_development_name_team" action="update.php">
+                <div id="update_development_name_team" class = "hidden_div">
+                    <input type="text" placeholder="Номер названия команды для обновление" name="number_name_team"><br>
+                    <input type="text" placeholder="Новое название команды" name="name_team"><br>
+                    <input type="submit" value="Обновить">
+                    <input type="text" name="name_update_development_name_team" style="visibility: hidden"
+                           id="name_update_development_name_team"><br>
                 </div>
             </form>
             <form method="post" id="update_form_name_nabor" action="update.php">
@@ -230,11 +252,13 @@
             function hideElements() {
                 document.getElementById('update_dogovor').style.visibility = 'hidden';
                 document.getElementById('update_client').style.visibility = 'hidden';
+                document.getElementById('update_development_team').style.visibility = 'hidden';
                 document.getElementById('update_plan').style.visibility = 'hidden';
                 document.getElementById('update_user_role').style.visibility = 'hidden';
                 document.getElementById('update_type_function').style.visibility = 'hidden';
                 document.getElementById('update_name_status_proj').style.visibility = 'hidden';
                 document.getElementById('update_nabor_function').style.visibility = 'hidden';
+                document.getElementById('update_development_name_team').style.visibility = 'hidden';
                 document.getElementById('update_name_nabor').style.visibility = 'hidden';
                 document.getElementById('update_otdel').style.visibility = 'hidden';
                 document.getElementById('update_report').style.visibility = 'hidden';
@@ -258,6 +282,11 @@
                     document.getElementById('name_update_table_client').value = document.getElementById('update_table').options[elt.selectedIndex].value;
                     hideElements();
                     document.getElementById('update_client').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Команда разработчиков") {
+                    document.getElementById('name_update_table_development_team').value = document.getElementById('update_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('update_development_team').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="План") {
                     document.getElementById('name_update_table_plan').value = document.getElementById('update_table').options[elt.selectedIndex].value;
@@ -283,6 +312,11 @@
                     document.getElementById('name_update_table_nabor_function').value = document.getElementById('update_table').options[elt.selectedIndex].value;
                     hideElements();
                     document.getElementById('update_nabor_function').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Название команды разработчиков") {
+                    document.getElementById('name_update_development_name_team').value = document.getElementById('update_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('update_development_name_team').style.visibility = 'visible';
                 }
                 if (elt.options[elt.selectedIndex].text=="Название набора") {
                     document.getElementById('name_update_table_name_nabor').value = document.getElementById('update_table').options[elt.selectedIndex].value;

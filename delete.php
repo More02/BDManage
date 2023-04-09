@@ -18,6 +18,9 @@ if (!empty($_POST['name_delete_table_dogovor'])) {
 if (!empty($_POST['name_delete_table_client'])) {
     $name_table = $_POST['name_delete_table_client'];
 }
+if (!empty($_POST['name_delete_table_development_team'])) {
+    $name_table = $_POST['name_delete_table_development_team'];
+}
 if (!empty($_POST['name_delete_table_plan'])) {
     $name_table = $_POST['name_delete_table_plan'];
 }
@@ -32,6 +35,9 @@ if (!empty($_POST['name_delete_table_status_proj'])) {
 }
 if (!empty($_POST['name_delete_table_nabor_function'])) {
     $name_table = $_POST['name_delete_table_nabor_function'];
+}
+if (!empty($_POST['name_delete_development_name_team'])) {
+    $name_table = $_POST['name_delete_development_name_team'];
 }
 if (!empty($_POST['name_delete_table_name_function'])) {
     $name_table = $_POST['name_delete_table_name_function'];
@@ -70,6 +76,11 @@ if ($name_table=='Клиент') {
 
     $sql = "DELETE FROM `клиент` WHERE `Номер_клиента`=$number_client";
 }
+if ($name_table=='Команда_разработчиков') {
+    $number_team_development = $_POST['number_team_development'];
+
+    $sql = "DELETE FROM `команда_разработчиков` WHERE `Номер_команды_разработчиков`=$number_team_development";
+}
 if ($name_table=='План') {
     $number_plan = $_POST['number_plan'];
 
@@ -94,6 +105,11 @@ if ($name_table=='Набор_функционала') {
     $number_nabor_func = $_POST['number_nabor_func'];
 
     $sql = "DELETE FROM `набор_функционала` WHERE `Номер_набора_функционала`=$number_nabor_func";
+}
+if ($name_table=='Название_команды_разработчиков') {
+    $number_name_team = $_POST['number_name_team'];
+
+    $sql = "DELETE FROM `название_команды_разработчиков` WHERE `Номер_названия_команды`=$number_name_team";
 }
 if ($name_table=='Название_набора') {
     $number_nazv_nabor = $_POST['number_name_function'];
