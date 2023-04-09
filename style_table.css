@@ -1,0 +1,36 @@
+td {
+    text-align: center;
+    padding: 10px;
+    font-size: 28px
+}
+
+.main_table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+div {
+    width: 80%;
+    margin: 0 auto
+}
+
+.td_main {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 28px
+}
+
+#print {
+    text-align: right;
+    margin-left: 250px
+}
+
+#name_of_report {
+    text-align: center;
+    font-size: 38px
+}
+
+#company_name {
+    text-align: right;
+    font-size: 25px
+}

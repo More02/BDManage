@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Разработка программных продуктов</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<?php require_once('ConnectDB.php'); ?>
+
+    <div id="header">
+
+        <ul id="main_menu">
+            <li><a href="index_add.html">Работа с базой данных</a></li>
+            <li><a href="requirements.html">Введение информации в файлы</a></li>
+            <li><a href="report.html">Формирование отчётов/планов</a></li>
+            <li><a href="download.html">Загрузка файлов</a></li>
+        </ul>
+        <ul>
+            <li><a href="requirements.html">Введение требований заказчика</a></li>
+            <li><a href="develop_report.html">Введение информации для отчёта о разработке/тестировании</a></li>
+        </ul>
+
+        <h1>Разработка программных продуктов</h1>
+
+
+    </div>
+
+<div id="page">
+    <div id="middle">
+        <div id="add">
+            <p class="enter_information">Введение информации для отчёта о разработке/тестировании</p>
+            <form method="post" id="add_form" action="develop_report.php">
+                <textarea name="develop_report"></textarea>
+
+            </form>
+
+            <button id="requirements_button" type="submit">Сохранить файл</button>
+        </div>
+        <script>
+            function hideElements() {
+                document.getElementById('add_dogovor').style.visibility = 'hidden';
+                document.getElementById('add_client').style.visibility = 'hidden';
+                document.getElementById('add_development_team').style.visibility = 'hidden';
+                document.getElementById('add_plan').style.visibility = 'hidden';
+                document.getElementById('add_user_role').style.visibility = 'hidden';
+                document.getElementById('add_type_function').style.visibility = 'hidden';
+                document.getElementById('add_name_status_proj').style.visibility = 'hidden';
+                document.getElementById('add_nabor_function').style.visibility = 'hidden';
+                document.getElementById('add_development_name_team').style.visibility = 'hidden';
+                document.getElementById('add_name_nabor').style.visibility = 'hidden';
+                document.getElementById('add_otdel').style.visibility = 'hidden';
+                document.getElementById('add_report').style.visibility = 'hidden';
+                document.getElementById('add_rabotnik').style.visibility = 'hidden';
+                document.getElementById('add_development').style.visibility = 'hidden';
+                document.getElementById('add_spec').style.visibility = 'hidden';
+                document.getElementById('add_test').style.visibility = 'hidden';
+                document.getElementById('add_tech_zad').style.visibility = 'hidden';
+            }
+            hideElements();
+            let a=document.getElementById('add_table').value;
+            let elt = document.getElementById('add_table');
+
+            document.getElementById('add_button').onclick=function () {
+                if (elt.options[elt.selectedIndex].text=="Договор") {
+                    document.getElementById('name_add_table_dogovor').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_dogovor').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Клиент") {
+                    document.getElementById('name_add_table_client').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_client').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Команда разработчиков") {
+                    document.getElementById('name_add_table_development_team').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_development_team').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="План") {
+                    document.getElementById('name_add_table_plan').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_plan').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Пользовательская роль") {
+                    document.getElementById('name_add_table_user_role').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_user_role').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Вид функционала") {
+                    document.getElementById('name_add_table_function').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_type_function').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Готовность проекта") {
+                    document.getElementById('name_add_table_status_proj').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_name_status_proj').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Набор функционала") {
+                    document.getElementById('name_add_table_nabor_function').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_nabor_function').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Название команды разработчиков") {
+                    document.getElementById('name_add_development_name_team').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_development_name_team').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Название набора") {
+                    document.getElementById('name_add_table_name_nabor').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_name_nabor').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Отдел") {
+                    document.getElementById('name_add_table_otdel').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_otdel').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Отчёт") {
+                    document.getElementById('name_add_table_report').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_report').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Работник") {
+                    document.getElementById('name_add_table_rabotnik').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_rabotnik').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Разработка") {
+                    document.getElementById('name_add_table_development').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_development').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Специализация") {
+                    document.getElementById('name_add_spec').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_spec').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Тестирование") {
+                    document.getElementById('name_add_table_test').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_test').style.visibility = 'visible';
+                }
+                if (elt.options[elt.selectedIndex].text=="Техническое задание") {
+                    document.getElementById('name_add_table_tech_zad').value = document.getElementById('add_table').options[elt.selectedIndex].value;
+                    hideElements();
+                    document.getElementById('add_tech_zad').style.visibility = 'visible';
+                }
+
+            }
+        </script>
+
+    </div>
+    <div id="footer">
+
+    </div>
+</div>
+
+</body>
+</html>

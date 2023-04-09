@@ -134,3 +134,33 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background: #d1e7fc;
 }
+textarea {
+    min-height: 500px;
+    min-width: 80%;
+}
+
+.enter_information {
+    font-size: 20px;
+}
+
+.central_div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.central_div input, select, p, button {
+    margin: 15px auto;
+}
+
+.central_div input {
+    margin-bottom: 0px;
+}
+
+.text_at_begin {
+    font-weight: bold;
+    font-size: 20px;
+}
+#central_div input {
+    width: 400px;
+}

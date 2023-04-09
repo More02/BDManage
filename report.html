@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Разработка программных продуктов</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<?php require_once('ConnectDB.php'); ?>
+
+    <div id="header">
+
+        <ul id="main_menu">
+            <li><a href="index_add.html">Работа с базой данных</a></li>
+            <li><a href="requirements.html">Введение информации в файлы</a></li>
+            <li><a href="report.html">Формирование отчётов/планов</a></li>
+            <li><a href="download.html">Загрузка файлов</a></li>
+        </ul>
+
+        <h1>Разработка программных продуктов</h1>
+
+
+    </div>
+
+<div id="page">
+    <div id="middle">
+            <p>Создание отчётов/планов</p>
+            <form method="post" class="central_div" id="central_div" action="report.php">
+                <p class="text_at_begin">Выберите тип отчёта:</p>
+                <select name="report_selection" id="report_selection">
+                    <option value="Отчёт_о_рентабельности">Отчёт о рентабельности</option>
+                    <option value="Отчёт_об_эффективности_работ">Отчёт об эффективности работ</option>
+                    <option value="План_работ">План работ</option>
+                </select>
+                <input type="text" placeholder="Начало периода" name="begin_period"><br>
+                <input type="text" placeholder="Конец периода" name="end_period"><br>
+                <button id="report_button" type="submit">Сформировать отчёт</button>
+
+            </form>
+    </div>
+
+    <div id="footer">
+
+    </div>
+</div>
+
+</body>
+</html>

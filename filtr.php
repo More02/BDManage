@@ -13,7 +13,7 @@
         <li><a href="index_add.html">Работа с базой данных</a></li>
         <li><a href="delete.html">Введение информации в файлы</a></li>
         <li><a href="update.html">Формирование отчётов/планов</a></li>
-        <li><a href="look.php">Загрузка файлов</a></li>
+        <li><a href="download.html">Загрузка файлов</a></li>
     </ul>
     <ul>
         <li><a href="index_add.html">Добавление</a></li>
