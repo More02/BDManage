@@ -584,7 +584,7 @@
                         border-collapse: collapse;'>
                         <tbody><tr>
                    <th>" . "Номер технического задания"
-                                    . "</th><th>" . "Номер работника"
+                                    . "</th><th>" . "Номер названия команды"
                                     . "</th><th>" . "Номер клиента"
                                     . "</th><th>" . "Комментарий"
                                     . "</th><th>" . "Ссылка на техническое задание"
@@ -600,7 +600,7 @@
                                         "<tr><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Номер_технического_задания"]
                                         . "</td><td style = 'border: 1px solid #dddddd;
-                        padding: 5px; text-align: center'>" . $row["Номер_работника"]
+                        padding: 5px; text-align: center'>" . $row["Номер_названия_команды"]
                                         . "</td><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Номер_клиента"]
                                         . "</td><td style = 'border: 1px solid #dddddd;

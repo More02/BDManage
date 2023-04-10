@@ -11,8 +11,8 @@
 
     <ul id="main_menu">
         <li><a href="index_add.html">Работа с базой данных</a></li>
-        <li><a href="delete.html">Введение информации в файлы</a></li>
-        <li><a href="update.html">Формирование отчётов/планов</a></li>
+        <li><a href="requirements.html">Введение информации в файлы</a></li>
+        <li><a href="report.html">Формирование отчётов/планов</a></li>
         <li><a href="download.html">Загрузка файлов</a></li>
     </ul>
     <ul>
@@ -36,17 +36,18 @@
             <form method="post" id="filtr_form" style="margin-left: -100px;">
                 <p class="select_table">Выберите поля для фильтрации</p>
                 <input type="text" placeholder="Номер договора" name="number_dog" class="check2" id="number_dog"><br>
-                <input type="text" placeholder="Введите работника" name="rabotnik" class="check2" id="rabotnik"><br>
+                <input type="text" placeholder="Введите название команды" name="team" class="check2" id="team"><br>
                 <input type="text" placeholder="Введите клиента" name="klient" class="check2" id="klient"><br>
                 <input type="text" placeholder="Название продукта" name="nazv_prod" class="check2" id="nazv_prod"><br>
-                <input type="text" placeholder="Номер набора функции" name="number_nab_func" class="check2" id="number_nab_func"><br>
+                <input type="text" placeholder="Название набора функций" name="nab_func" class="check2" id="nab_func"><br>
 
                 <p class="select_table">Выберите статус готовности</p>
+                <input type="checkbox" name="Working" value="Working" class="check" id="Working">Принято в работу<br>
+                <input type="checkbox" name="TZ" value="TZ" class="check" id="TZ">Разработка технического задания<br>
+                <input type="checkbox" name="Designin" value="Designin" class="check" id="Designin">Создание макета<br>
+                <input type="checkbox" name="Developing" value="Developing" class="check" id="Developing">Написание программного кода<br>
+                <input type="checkbox" name="Testing" value="Testing" class="check" id="Testing">Тестирование<br>
                 <input type="checkbox" name="Ready" value="Ready" class="check" id="Ready">Готово<br>
-                <input type="checkbox" name="Developing" value="Developing" class="check" id="Developing">В разработке<br>
-                <input type="checkbox" name="Testing" value="Testing" class="check" id="Testing">Тестируется<br>
-                <input type="checkbox" name="OnServer" value="OnServer" class="check" id="OnServer">Размещение на серв<br>
-                <input type="checkbox" name="Podd" value="Podd" class="check" id="Podd">Поддержка<br>
                 <input type="submit" name="type[filtr_button]"  id="filtr_button" value="Найти">
             </form>
             <?php
@@ -56,7 +57,7 @@
                 define("DB_HOST", "localhost");
                 define("DB_USER", "root");
                 define("DB_PASSWORD", "");
-                define("DB_DATABASE", "разработка_программных_продуктов");
+                define("DB_DATABASE", "develop");
                 $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
                 if ($conn->connect_error) {
@@ -68,8 +69,8 @@
                 if (!empty($_POST['number_dog'])) {$number_dog = '`Номер_договора` = '.$_POST['number_dog'];} else {
                     $number_dog = '1';
                 }
-                if (!empty($_POST['rabotnik'])) {$rabotnik = "r LIKE '%".$_POST['rabotnik']."%'";} else {
-                    $rabotnik = '1';
+                if (!empty($_POST['team'])) {$team = "`Название_команды` LIKE '%".$_POST['team']."%'";} else {
+                    $team = '1';
                 }
                 if (!empty($_POST['klient'])) {$klient = "k LIKE '%".$_POST['klient']."%'";} else {
                     $klient = '1';
@@ -77,45 +78,49 @@
                 if (!empty($_POST['nazv_prod'])) {$nazv_prod = "`Название_продукта` LIKE '%".$_POST['nazv_prod']."%'";} else {
                     $nazv_prod = '1';
                 }
-                if (!empty($_POST['number_nab_func'])) {$number_nab_func = '`Номер_набора` = '.$_POST['number_nab_func'];} else {
-                    $number_nab_func = '1';
+                if (!empty($_POST['nab_func'])) {$nab_func = '`Название_набора` = '.$_POST['nab_func'];} else {
+                    $nab_func = '1';
                 }
                 if (!empty($_POST['Ready'])){$Ready = "OR `Название_статуса_готовности_проекта` LIKE '%Готово%'";} else {
                     $Ready = '';
                 }
-                if (!empty($_POST['Developing'])) {$Developing = "OR `Название_статуса_готовности_проекта` LIKE '%В разработке%'";} else {
+                if (!empty($_POST['Developing'])) {$Developing = "OR `Название_статуса_готовности_проекта` LIKE '%Написание программного кода%'";} else {
                     $Developing = '';
                 }
-                if (!empty($_POST['Testing'])) {$Testing = "OR `Название_статуса_готовности_проекта` LIKE '%Тестируется%'";} else {
+                if (!empty($_POST['Testing'])) {$Testing = "OR `Название_статуса_готовности_проекта` LIKE '%Тестирование%'";} else {
                     $Testing = '';
                 }
-                if (!empty($_POST['OnServer'])){$OnServer = "OR `Название_статуса_готовности_проекта` LIKE '%Размещение на серв%'"; } else {
-                    $OnServer = '';
+                if (!empty($_POST['Designin'])){$Designin = "OR `Название_статуса_готовности_проекта` LIKE '%Создание макета%'"; } else {
+                    $Designin = '';
                 }
-                if (!empty($_POST['Podd'])) {$Podd = "OR `Название_статуса_готовности_проекта` LIKE '%Поддержка%'";} else {
-                    $Podd = '';
+                if (!empty($_POST['TZ'])) {$TZ = "OR `Название_статуса_готовности_проекта` LIKE '%Разработка технического задания%'";} else {
+                    $TZ = '';
                 }
-                if (empty($Podd)&&empty($OnServer)&&empty($Testing)&&empty($Developing)&&empty($Ready)) {
+                if (!empty($_POST['Working'])) {$Working = "OR `Название_статуса_готовности_проекта` LIKE '%Принято в работу%'";} else {
+                    $Working = '';
+                }
+                if (empty($TZ)&&empty($Designin)&&empty($Testing)&&empty($Developing)&&empty($Ready)&&empty($Working)) {
                     $Ready="OR 1";
                 }
 
 
-                $sql = "SELECT 
+                $sql = "
+SELECT 
 	`Номер_договора`,
-	r,
-	k,
- `Название_продукта`,
-	`Номер_набора`  ,
+	`Название_команды`,
+	k as 'Клиент',
+ 	`Название_продукта`,
+	`Название_набора`,
 	`Название_статуса_готовности_проекта` 
-    FROM 
-	((((`договор`  
-		INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `техническое_задание`.`номер_работника`, concat(`Фамилия_работника`,' ', `Имя_работника`,' ', `Отчество_работника`) as r FROM `техническое_задание`
-			INNER JOIN `работник` on `техническое_задание`.`Номер_работника` = `работник`.`Номер_работника`) as s1 ON `договор`.`Номер_технического_задания` = s1.`Номер_технического_задания`)
-		INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `техническое_задание`.`Номер_клиента`, concat(`Фамилия_клиента`,' ',`Имя_клиента`,' ',`Отчество_клиента`) as k FROM `техническое_задание`
-			INNER JOIN `клиент` on `техническое_задание`.`Номер_клиента`=`клиент`.`Номер_клиента`) as s2 ON `договор`.`Номер_технического_задания`=s2.`Номер_технического_задания`)
-		INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `техническое_задание`.`Номер_набора_функционала`, `Номер_набора` FROM `техническое_задание`INNER JOIN `набор_функционала` on `техническое_задание`.`Номер_набора_функционала`=`набор_функционала`.`Номер_набора_функционала`) as s3 ON `договор`.`Номер_технического_задания`=s3.`Номер_технического_задания`)
+FROM 
+((((`договор`  
+	INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `название_команды_разработчиков`.`Название_команды` FROM `техническое_задание`
+		INNER JOIN `название_команды_разработчиков` on `техническое_задание`.`Номер_названия_команды` = `название_команды_разработчиков`.`Номер_названия_команды`) as s1 ON `договор`.`Номер_технического_задания` = s1.`Номер_технического_задания`)
+	INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `техническое_задание`.`Номер_клиента`, concat(`Фамилия_клиента`,' ',`Имя_клиента`,' ',`Отчество_клиента`) as k FROM `техническое_задание`
+		INNER JOIN `клиент` on `техническое_задание`.`Номер_клиента`=`клиент`.`Номер_клиента`) as s2 ON `договор`.`Номер_технического_задания`=s2.`Номер_технического_задания`)
+	INNER JOIN (SELECT `техническое_задание`.`Номер_технического_задания`, `название_набора`.`Название_набора` FROM `техническое_задание` INNER JOIN `название_набора` on `техническое_задание`.`Код_названия_набора`=`название_набора`.`Код_названия_набора`) as s3 ON `договор`.`Номер_технического_задания`=s3.`Номер_технического_задания`)
 		INNER JOIN `готовность_проекта` ON `договор`.`Номер_статуса_готовности_проекта`=`готовность_проекта`.`Номер_статуса_готовности_проекта`)
-WHERE $number_dog AND $rabotnik AND $klient AND $nazv_prod AND $number_nab_func AND ('1' LIKE '0' $Ready"."  $Developing "."$Testing "." $OnServer "." $Podd)
+WHERE $number_dog AND $team AND $klient AND $nazv_prod AND $nazv_prod AND $nab_func AND ('1' LIKE '0' $Ready"."  $Developing "."$Testing "." $Working "." $TZ "." $Designin)
 ORDER BY `Номер_договора`";
 
 
@@ -134,12 +139,12 @@ ORDER BY `Номер_договора`";
                         margin-top: -600px;
                         margin-left: 460px;'>
                         <tbody><tr>
-                   <th>" . "Номер"
-                            . "</th><th>" . "Работник"
+                   <th>" . "Номер договора"
+                            . "</th><th>" . "Название команды"
                             . "</th><th>" . "Клиент"
                             . "</th><th>" . "Название продукта"
-                            . "</th><th>" . "Номер набора функций"
-                            . "</th><th>" . "Статус проекта"
+                            . "</th><th>" . "Название набора"
+                            . "</th><th>" . "Название статуса готовности проекта"
                             . "</th>
                  </tr>";
                         // output data of each row
@@ -149,13 +154,13 @@ ORDER BY `Номер_договора`";
                                 "<tr><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Номер_договора"]
                                 . "</td><td style = 'border: 1px solid #dddddd;
-                        padding: 5px; text-align: center'>" . $row["r"]
+                        padding: 5px; text-align: center'>" . $row["Название_команды"]
                                 . "</td><td style = 'border: 1px solid #dddddd;
-                        padding: 5px; text-align: center'>" . $row["k"]
+                        padding: 5px; text-align: center'>" . $row["Клиент"]
                                 . "</td><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Название_продукта"]
                                 . "</td><td style = 'border: 1px solid #dddddd;
-                        padding: 5px; text-align: center'>" . $row["Номер_набора"]
+                        padding: 5px; text-align: center'>" . $row["Название_набора"]
                                 . "</td><td style = 'border: 1px solid #dddddd;
                         padding: 5px; text-align: center'>" . $row["Название_статуса_готовности_проекта"]
                                 . "</td></tr>";
