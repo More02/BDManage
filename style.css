@@ -125,18 +125,24 @@ button:hover {
 }
 form input[type="submit"] {
     background-color: aliceblue;
-    width: 650px;
+    width: 550px;
     margin-top: 15px;
     margin-left: 25px;
     border-color: #463a93;
     border-style: solid;
 }
+
 form input[type="submit"]:hover {
     background: #d1e7fc;
 }
 textarea {
     min-height: 500px;
     min-width: 80%;
+	font-size: 20px;
+}
+
+.textarea_for_develop {
+	 min-height: 220px;
 }
 
 .enter_information {

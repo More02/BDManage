@@ -31,7 +31,10 @@
         <div id="add">
             <p class="enter_information">Введение информации для отчёта о разработке/тестировании</p>
             <form method="post" id="development_form" name="development" action="download_text.php">
-                <textarea name="development_textarea"></textarea>
+				<p>Введите информацию о выполненных пунктах из ТЗ</p>
+                <textarea name="development_textarea_1" class="textarea_for_develop"></textarea>
+				<p>Введите иную информацию</p>
+                <textarea name="development_textarea_2" class="textarea_for_develop"></textarea>
                 <input id="development_button" name="development_button" type="submit" value="Сохранить файл"/>
 
             </form>

@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a28d02a2-8921-4839-b407-ad72fa0f9b59" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/develop_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/develop_report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/download.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/effectivity_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/effectivity_report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filtr.php" beforeDir="false" afterPath="$PROJECT_DIR$/filtr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/look.php" beforeDir="false" afterPath="$PROJECT_DIR$/look.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profitability_report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/profitability_report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profitability_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/profitability_report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.html" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work_plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/work_plan.html" afterDir="false" />
-    </list>
+    <list default="true" id="a28d02a2-8921-4839-b407-ad72fa0f9b59" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1680958814270</updated>
       <workItem from="1680958814586" duration="36561000" />
-      <workItem from="1681042173355" duration="39675000" />
+      <workItem from="1681042173355" duration="40270000" />
     </task>
     <servers />
   </component>

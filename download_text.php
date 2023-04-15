@@ -11,10 +11,16 @@ if (isset($_POST['requirements_textarea'])) {
         readfile ($file);
         exit();
 }
-else if (!empty($_POST['development_textarea'])) {
+else if ((!empty($_POST['development_textarea_1'])) || (!empty($_POST['development_textarea_2']))) {
     $file = "develop.txt";
-    $text = $_POST['development_textarea'];
-    file_put_contents($file, $text);
+	$header1 = "Информация о выполненных пунктах из ТЗ:\n";
+    $text1 = $_POST['development_textarea_1'] . "\n";
+	$header2 = "Иная информация:\n";
+	$text2 = $_POST['development_textarea_2'] . "\n";
+    file_put_contents($file, $header1);
+	file_put_contents($file, $text1, FILE_APPEND);
+	file_put_contents($file, $header2, FILE_APPEND);
+	file_put_contents($file, $text2, FILE_APPEND);
     header("Content-Description: File Transfer");
     header("Content-Type: application/octet-stream");
     header("Content-Disposition: attachment; filename=\"". basename($file) ."\"");
