@@ -7,19 +7,19 @@
 
 # Images
 <p align="left">
-<img src="landing/ALMSystem_1.png.jpg" width = 400/>
-<img src="landing/ALMSystem_2.png.jpg" width = 400/>
-<img src="landing/ALMSystem_3.png.jpg" width = 400/>
-<img src="landing/ALMSystem_4.png.jpg" width = 400/>
-<img src="landing/ALMSystem_5.png.jpg" width = 400/>
-<img src="landing/ALMSystem_6.png.jpg" width = 400/>
-<img src="landing/ALMSystem_7.png.jpg" width = 400/>
-<img src="landing/ALMSystem_8.png.jpg" width = 400/>
-<img src="landing/ALMSystem_13.png.jpg" width = 400/>
-<img src="landing/ALMSystem_9.png.jpg" width = 400/>  
-<img src="landing/ALMSystem_10.png.jpg" width = 400/>  
-<img src="landing/ALMSystem_11.png.jpg" width = 400/>
-<img src="landing/ALMSystem_12.png.jpg" width = 400/>  
+<img src="landing/ALMSystem_1.png" width = 400/>
+<img src="landing/ALMSystem_2.png" width = 400/>
+<img src="landing/ALMSystem_3.png" width = 400/>
+<img src="landing/ALMSystem_4.png" width = 400/>
+<img src="landing/ALMSystem_5.png" width = 400/>
+<img src="landing/ALMSystem_6.png" width = 400/>
+<img src="landing/ALMSystem_7.png" width = 400/>
+<img src="landing/ALMSystem_8.png" width = 400/>
+<img src="landing/ALMSystem_13.png" width = 400/>
+<img src="landing/ALMSystem_9.png" width = 400/>  
+<img src="landing/ALMSystem_10.png" width = 400/>  
+<img src="landing/ALMSystem_11.png" width = 400/>
+<img src="landing/ALMSystem_12.png" width = 400/>  
 </p>
 
 ---
